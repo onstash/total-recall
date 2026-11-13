@@ -1,4 +1,6 @@
 {
+  "name": "total-recall",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "wrangler dev",
@@ -9,7 +11,9 @@
     "test": "node --test 'src/**/*.test.ts' 'tests/**/*.test.mjs'",
     "typecheck": "tsc --noEmit",
     "check:agent-contract": "node scripts/check-agent-contract.mjs",
-    "check:mcp-contract": "node scripts/check-mcp-contract.mjs"
+    "check:mcp-contract": "node scripts/check-mcp-contract.mjs",
+    "prepare": "lefthook install",
+    "verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm check:agent-contract && pnpm check:mcp-contract"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.2",
@@ -17,10 +21,14 @@
     "jose": "^6.2.13"
   },
   "devDependencies": {
-    "@oxlint/plugins": "^1.87.0",
+    "@commitlint/cli": "21.2.4",
+    "@commitlint/config-conventional": "21.2.4",
+    "@oxlint/plugins": "1.87.0",
+    "lefthook": "2.2.2",
     "oxfmt": "^0.72.0",
-    "oxlint": "^1.87.0",
+    "oxlint": "1.87.0",
     "typescript": "^5.9.3",
     "wrangler": "^4.150.0"
-  }
+  },
+  "packageManager": "pnpm@10.10.0"
 }
