@@ -12,7 +12,8 @@ Do not paste the token into chat, source files, commit messages, or logs.
 
 ## Local development
 
-Create `agents/total-recall/.dev.vars` manually:
+Create `.dev.vars` in the repository root. Use `.dev.vars.example` as a
+template and set the secrets:
 
 ```text
 TOTAL_RECALL_TOKEN=<generated-token>
